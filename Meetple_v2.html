@@ -169,54 +169,7 @@
   }
   .icon-btn svg { width: 24px; height: 24px; }
 
-  .home-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin: 8px 0 14px;
-  }
-  .btn-pill {
-    display: inline-flex;
-    align-items: center;
-    flex: none;
-    min-height: 40px;
-    padding: 0 16px;
-    border-radius: 999px;
-    background: var(--light-blue);
-    color: var(--primary);
-    font-size: 0.875rem;
-    font-weight: 700;
-  }
-  .btn-pill:active { opacity: 0.85; }
-
-  /* 메모: 예정된 미팅 불러오기 */
-  .memo-load { width: 100%; margin: 0 0 12px; text-align: left; }
-  .memo-load .go-arrow { transition: transform 0.15s ease; }
-  .memo-load[aria-expanded="true"] .go-arrow { transform: rotate(90deg); }
-  @media (prefers-reduced-motion: reduce) { .memo-load .go-arrow { transition: none; } }
-  .load-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin: -4px 0 14px;
-  }
-  .load-item {
-    display: block;
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 12px;
-    background: var(--surface);
-    text-align: left;
-  }
-  .load-item:active { background: var(--light-blue); }
-  @media (hover: hover) { .load-item:hover { background: var(--light-blue); } }
-  .load-item__when { font-size: 0.9375rem; font-weight: 600; }
-  .load-item__who { margin-top: 2px; font-size: 0.8125rem; color: var(--gray); }
-
-  .summary-empty { font-size: 0.9375rem; color: var(--gray); }
-  .add-form { margin-top: 4px; }
-  .add-submit { margin-top: 12px; }
+  .home-title { margin: 8px 0 14px; }
 
   .meeting-list {
     display: flex;
@@ -292,8 +245,7 @@
   }
 
   /* ── ② 미팅 1시간 전 알림 ─────────────────── */
-  .reminder { padding-top: 0; }
-  .reminder .backbar + #reminder-card { margin-top: 4px; }
+  .reminder { padding-top: 8px; }
 
   .push {
     border-radius: var(--radius-card);
@@ -355,90 +307,10 @@
   .detail-row:last-child { border-bottom: 0; }
   .detail-row dt { font-weight: 700; color: var(--primary); }
   .detail-row dd { margin: 0; }
+  .detail-row--meta dd { color: var(--gray); }   /* 담당자 정보는 회색 보조 텍스트 */
 
   /* 메모 원문: 사용자가 쓴 글이라 ③ 입력창과 같은 흰 박스 + 회색 테두리 (AI 결과의 점선 박스와 구분) */
   .detail-list + .detail-section { margin-top: 28px; }
-  .backbar__title { flex: 1; min-width: 0; }
-  #detail-title span { display: inline-block; max-width: 100%; }
-  /* ── 더보기 ─────────────────────────────── */
-  .more-title { margin: 8px 0 20px; }
-  .more-section {
-    margin-bottom: 8px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--gray);
-  }
-  .more-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 16px;
-    border-radius: var(--radius-card);
-    background: var(--surface);
-  }
-  .more-row__text { min-width: 0; }
-  .more-row__title { font-size: 1rem; font-weight: 700; }
-  .more-row__sub { margin-top: 2px; font-size: 0.8125rem; color: var(--gray); }
-  .more-row__sub .nowrap { white-space: nowrap; }
-  .btn-pill-danger {
-    flex: none;
-    min-height: 40px;
-    padding: 0 16px;
-    border-radius: 999px;
-    background: var(--white);
-    box-shadow: inset 0 0 0 1px rgba(217, 45, 32, 0.45);
-    color: var(--danger);
-    font-size: 0.875rem;
-    font-weight: 700;
-  }
-  .btn-pill-danger:disabled { color: var(--gray); box-shadow: inset 0 0 0 1px rgba(119, 129, 148, 0.35); opacity: 0.6; cursor: default; }
-  .btn-pill-danger[aria-expanded="true"] { opacity: 0.4; }
-  .btn-pill-danger:not(:disabled):active { background: rgba(217, 45, 32, 0.06); }
-  .more-confirm { margin-top: 8px; }
-  .more-note { margin-top: 10px; font-size: 0.8125rem; color: var(--gray); }
-  .btn-text-danger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 46px;
-    border-radius: 12px;
-    color: var(--danger);
-    font-size: 0.9375rem;
-    font-weight: 600;
-  }
-  .btn-text-danger:active { background: rgba(217, 45, 32, 0.06); }
-  @media (hover: hover) { .btn-text-danger:hover { background: rgba(217, 45, 32, 0.06); } }
-  .btn-text-danger[aria-expanded="true"] { opacity: 0.4; }
-  .detail-delete { margin-top: 24px; }
-  .detail-delete .delete-confirm { margin-top: 8px; }
-  .btn-text-danger--line { box-shadow: inset 0 0 0 1px rgba(217, 45, 32, 0.35); } /* 버튼인 게 보이도록 연한 테두리 */
-  .delete-confirm {
-    margin-top: 4px;
-    padding: 16px;
-    border-radius: var(--radius-card);
-    background: var(--surface);
-    text-align: center;
-  }
-  .delete-confirm__q { font-size: 0.9375rem; font-weight: 700; }
-  .delete-confirm__sub { margin-top: 2px; font-size: 0.8125rem; color: var(--gray); }
-  .delete-confirm__btns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 14px;
-  }
-  .btn-sub, .btn-danger {
-    min-height: 46px;
-    border-radius: 12px;
-    font-size: 0.9375rem;
-    font-weight: 700;
-  }
-  .btn-sub { background: var(--white); box-shadow: inset 0 0 0 1px rgba(119, 129, 148, 0.35); }
-  .btn-danger { background: var(--danger); color: var(--white); }
-  .btn-sub:active, .btn-danger:active { opacity: 0.85; }
-
   .raw-memo {
     padding: 16px;
     border: 1px solid rgba(119, 129, 148, 0.35);
@@ -715,10 +587,6 @@
 
   /* 날짜: 보이는 값은 9/28(월) 형식, 실제 입력은 투명한 기본 달력이 칸 전체를 덮음 */
   .field--date { position: relative; cursor: pointer; }
-  .time-range { display: flex; align-items: center; gap: 6px; }
-  .time-slot { position: relative; flex: 0 1 auto; min-width: 3.4em; margin: -6px 0; padding: 6px 0; cursor: pointer; } /* 누르는 범위를 위아래로 넓힘 */
-  .time-slot .field__value { text-align: left; }
-  .time-dash { flex: none; color: var(--gray); margin-top: 2px; }
   .field__value {
     display: block;
     height: 26px;
@@ -783,10 +651,6 @@
   }
 
   .memo .btn-primary { margin-top: 12px; }
-  .memo-go { margin-top: 12px; }
-  @media (hover: hover) { a.memo-go:hover { background: var(--light-blue); } }
-  a.memo-go:active { background: var(--light-blue); }
-
   .memo-error {
     margin-top: 12px;
     font-size: 0.875rem;
@@ -918,42 +782,28 @@
 
       <!-- ① 홈 -->
       <section id="screen-home" data-screen="home">
-        <div class="home-head">
-          <h1 class="section-title" id="home-title" tabindex="-1">다가오는 미팅</h1>
-          <a class="btn-pill" href="#add">미팅 추가</a>
-        </div>
+        <h1 class="section-title home-title" id="home-title" tabindex="-1">다가오는 미팅</h1>
         <ul class="meeting-list" id="meeting-list"></ul>
       </section>
 
       <!-- ② 미팅 1시간 전 알림 -->
       <section id="screen-reminder" data-screen="reminder" class="reminder" hidden>
-        <div class="backbar" id="reminder-backbar">
-          <button class="backbar__btn" type="button" id="reminder-back" aria-label="뒤로">‹</button>
+        <div class="push" id="reminder-push" aria-label="알림">
+          <p class="push__meta" id="reminder-push-meta"></p>
+          <p class="push__title" id="reminder-push-title"></p>
         </div>
 
-        <div id="reminder-card"></div>
+        <div class="backbar" id="reminder-backbar" hidden>
+          <button class="backbar__btn" type="button" id="reminder-back" aria-label="뒤로">‹</button>
+          <p class="backbar__title" id="reminder-company"></p>
+        </div>
 
         <h1 class="section-title reminder-title num" id="reminder-title" tabindex="-1"></h1>
         <div class="summary-box">
           <ul class="summary-list" id="reminder-lines"></ul>
-          <p class="summary-empty" id="reminder-empty" hidden>직전 미팅 기록이 없습니다.</p>
           <ul class="chip-row" id="reminder-chips" aria-label="키워드"></ul>
         </div>
         <a class="btn-primary" id="reminder-detail" href="#">상세 내용 보기</a>
-
-        <!-- 예정된 미팅 삭제 (맨 아래) -->
-        <div class="detail-delete">
-          <button class="btn-text-danger btn-text-danger--line" type="button" id="plan-delete-ask" aria-controls="plan-delete-confirm">미팅 삭제</button>
-          <div class="delete-confirm" id="plan-delete-confirm" role="group" aria-labelledby="plan-delete-q" hidden>
-            <p class="delete-confirm__q" id="plan-delete-q">이 미팅을 삭제할까요?</p>
-            <p class="delete-confirm__sub">홈·캘린더·알림에서 모두 사라집니다.</p>
-            <div class="delete-confirm__btns">
-              <button class="btn-sub" type="button" id="plan-delete-cancel">취소</button>
-              <button class="btn-danger" type="button" id="plan-delete-ok">삭제</button>
-            </div>
-          </div>
-        </div>
-        <p class="sr-only" id="reminder-live" aria-live="polite"></p>
       </section>
 
       <!-- ③ 미팅 후 메모 -->
@@ -962,32 +812,13 @@
           <h1 class="section-title" id="memo-title" tabindex="-1">미팅 메모</h1>
         </header>
 
-        <button class="cal-card__go memo-load" type="button" id="memo-load" aria-expanded="false" aria-controls="memo-load-list">
-          <span>예정된 미팅 불러오기</span><span class="go-arrow" aria-hidden="true">›</span>
-        </button>
-        <ul class="load-list" id="memo-load-list" aria-label="불러올 미팅" hidden></ul>
-
         <div class="memo-target">
           <label class="field field--date">
             <span class="field__label">날짜</span>
             <span class="field__value num is-empty" id="memo-date-text" aria-hidden="true">선택해 주세요</span>
             <input class="field__native" id="memo-date" type="date" aria-label="날짜">
           </label>
-          <div class="field field--time" role="group" aria-labelledby="memo-time-label">
-            <span class="field__label" id="memo-time-label">시간</span>
-            <div class="time-range">
-              <label class="time-slot">
-                <span class="field__value num is-empty" id="memo-start-text" aria-hidden="true">시작</span>
-                <input class="field__native" id="memo-start" type="time" aria-label="시작 시간">
-              </label>
-              <span class="time-dash" aria-hidden="true">‒</span>
-              <label class="time-slot">
-                <span class="field__value num is-empty" id="memo-end-text" aria-hidden="true">종료</span>
-                <input class="field__native" id="memo-end" type="time" aria-label="종료 시간">
-              </label>
-            </div>
-          </div>
-          <div class="field field--combo field--wide">
+          <div class="field field--combo">
             <label class="field__label" for="memo-company">회사명</label>
             <input class="field__input" id="memo-company" type="text" placeholder="입력해 주세요"
                    role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="company-list"
@@ -1016,9 +847,6 @@
           </div>
           <dl class="ai-list" id="memo-summary"></dl>
         </section>
-        <a class="cal-card__go memo-go" id="memo-open" href="#" hidden>
-          <span>요약·상세 보기</span><span class="go-arrow" aria-hidden="true">›</span>
-        </a>
         <p class="sr-only" id="memo-live" aria-live="polite"></p>
       </section>
 
@@ -1039,20 +867,6 @@
 
         <h2 class="section-title detail-section">메모 원문</h2>
         <p class="raw-memo" id="detail-memo"></p>
-
-        <!-- 기록 삭제 (맨 아래) -->
-        <div class="detail-delete">
-          <button class="btn-text-danger btn-text-danger--line" type="button" id="delete-ask" aria-controls="delete-confirm">기록 삭제</button>
-          <div class="delete-confirm" id="delete-confirm" role="group" aria-labelledby="delete-q" hidden>
-            <p class="delete-confirm__q" id="delete-q">이 기록을 삭제할까요?</p>
-            <p class="delete-confirm__sub">삭제한 기록은 되돌릴 수 없습니다.</p>
-            <div class="delete-confirm__btns">
-              <button class="btn-sub" type="button" id="delete-cancel">취소</button>
-              <button class="btn-danger" type="button" id="delete-ok">삭제</button>
-            </div>
-          </div>
-        </div>
-        <p class="sr-only" id="detail-live" aria-live="polite"></p>
       </section>
 
       <!-- ④ 캘린더 -->
@@ -1075,78 +889,6 @@
         </p>
         <h2 class="sr-only" id="cal-list-title"></h2>
         <ul class="cal-list" id="cal-list" aria-labelledby="cal-list-title"></ul>
-
-      </section>
-
-      <!-- 미팅 추가 -->
-      <section id="screen-add" data-screen="add" hidden>
-        <div class="backbar">
-          <button class="backbar__btn" type="button" id="add-back" aria-label="뒤로">‹</button>
-          <h1 class="backbar__title" id="add-title" tabindex="-1">미팅 추가</h1>
-        </div>
-
-        <div class="memo-target add-form">
-          <label class="field field--date">
-            <span class="field__label">날짜</span>
-            <span class="field__value num is-empty" id="add-date-text" aria-hidden="true">선택해 주세요</span>
-            <input class="field__native" id="add-date" type="date" aria-label="날짜">
-          </label>
-          <div class="field field--time" role="group" aria-labelledby="add-time-label">
-            <span class="field__label" id="add-time-label">시간</span>
-            <div class="time-range">
-              <label class="time-slot">
-                <span class="field__value num is-empty" id="add-start-text" aria-hidden="true">시작</span>
-                <input class="field__native" id="add-start" type="time" aria-label="시작 시간">
-              </label>
-              <span class="time-dash" aria-hidden="true">‒</span>
-              <label class="time-slot">
-                <span class="field__value num is-empty" id="add-end-text" aria-hidden="true">종료</span>
-                <input class="field__native" id="add-end" type="time" aria-label="종료 시간">
-              </label>
-            </div>
-          </div>
-          <div class="field field--combo field--wide">
-            <label class="field__label" for="add-company">회사명</label>
-            <input class="field__input" id="add-company" type="text" placeholder="입력해 주세요"
-                   role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="add-company-list"
-                   autocomplete="off" enterkeyhint="next">
-            <ul class="suggest" id="add-company-list" role="listbox" aria-label="회사명 추천" hidden></ul>
-          </div>
-          <div class="field field--combo field--wide">
-            <label class="field__label" for="add-contact">담당자</label>
-            <input class="field__input" id="add-contact" type="text" placeholder="입력해 주세요"
-                   role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="add-contact-list"
-                   autocomplete="off" enterkeyhint="done">
-            <ul class="suggest" id="add-contact-list" role="listbox" aria-label="담당자 추천" hidden></ul>
-          </div>
-        </div>
-        <p class="memo-error" id="add-error" hidden>종료 시간은 시작 시간보다 늦어야 합니다.</p>
-        <button class="btn-primary add-submit" type="button" id="add-submit">미팅 추가</button>
-        <p class="sr-only" id="add-live" aria-live="polite"></p>
-      </section>
-
-      <!-- 더보기 -->
-      <section id="screen-more" data-screen="more" hidden>
-        <h1 class="section-title more-title" id="more-title" tabindex="-1">더보기</h1>
-
-        <h2 class="more-section">기록 관리</h2>
-        <div class="more-row">
-          <div class="more-row__text">
-            <p class="more-row__title">기록 초기화</p>
-            <p class="more-row__sub num" id="more-count"></p>
-          </div>
-          <button class="btn-pill-danger" type="button" id="reset-ask" aria-controls="reset-confirm">초기화</button>
-        </div>
-        <div class="delete-confirm more-confirm" id="reset-confirm" role="group" aria-labelledby="reset-q" hidden>
-          <p class="delete-confirm__q" id="reset-q">기록을 처음 상태로 되돌릴까요?</p>
-          <p class="delete-confirm__sub">직접 추가한 미팅과 저장한 메모는 모두 지워지고, 삭제한 샘플 미팅과 기록은 다시 나타납니다.</p>
-          <div class="delete-confirm__btns">
-            <button class="btn-sub" type="button" id="reset-cancel">취소</button>
-            <button class="btn-danger" type="button" id="reset-ok">초기화</button>
-          </div>
-        </div>
-        <p class="more-note" id="more-note"></p>
-        <p class="sr-only" id="more-live" aria-live="polite"></p>
       </section>
 
       <!-- 알림 목록 (상단 벨) -->
@@ -1199,9 +941,7 @@
       },
       "previous": {
         "date": "2026-09-28",
-        "weekday": "월",
-        "start": "10:00",
-        "end": "12:00"
+        "weekday": "월"
       },
       "raw_memo": "3분기 실적 이슈로 얘기 길었음. 김 팀장님 숫자 꼼꼼, 근거자료 먼저 보여드리기. 세무 리스크 자료 보내주기로 했고 다음 분기 일정도 다시 잡아야 함.",
       "ai_summary": {
@@ -1237,9 +977,7 @@
       },
       "previous": {
         "date": "2026-09-14",
-        "weekday": "월",
-        "start": "14:00",
-        "end": "16:00"
+        "weekday": "월"
       },
       "raw_memo": "이 부장님 장황한 거 싫어하심. 결론부터 말하고 세부는 자료로 넘기기. 4분기 물량이랑 단가 인상 얘기 나왔고 단가표 수정해서 보내야 함",
       "ai_summary": {
@@ -1275,9 +1013,7 @@
       },
       "previous": {
         "date": "2026-09-17",
-        "weekday": "목",
-        "start": "10:00",
-        "end": "11:00"
+        "weekday": "목"
       },
       "raw_memo": "결제조건 30일/60일 + 최소발주수량 논의. 박 과장님 혼자 결정 못 하고 팀장 보고 거쳐야 함. 다음엔 결정 기한 미리 알려주고 비교표 챙겨가기. 승인 결과 기다리는 중",
       "ai_summary": {
@@ -1313,9 +1049,7 @@
       },
       "previous": {
         "date": "2026-09-25",
-        "weekday": "금",
-        "start": "15:00",
-        "end": "16:30"
+        "weekday": "금"
       },
       "raw_memo": "시장조사 범위 논의 / - 일정 2주 연장 요청함 / - 최 이사님 일정 바뀌는 거 민감, 사유랑 영향부터 설명할 것 / - 수정 일정표 공유, 조사 범위 확정해서 회신",
       "ai_summary": {
@@ -1351,9 +1085,7 @@
       },
       "previous": {
         "date": "2026-09-22",
-        "weekday": "화",
-        "start": "11:00",
-        "end": "12:00"
+        "weekday": "화"
       },
       "raw_memo": "경력채용 직무 3개 논의, fee 구조 설명 드림. 정 차장님 후보 이력 하나하나 비교하시는 스타일이라 비교표로 드리기. 후보 프로필 5명 보내기",
       "ai_summary": {
@@ -1389,9 +1121,7 @@
       },
       "previous": {
         "date": "2026-09-08",
-        "weekday": "화",
-        "start": "14:00",
-        "end": "15:00"
+        "weekday": "화"
       },
       "raw_memo": "중간예납 예상 세액 같이 봤고 공제 항목 몇 개 더 챙길 수 있는지 검토함. 한 부장님은 비용 줄이는 데 관심이 커서 절세되는 금액을 숫자로 바로 보여드리는 게 좋음. 공제 증빙 받아와야 함.",
       "ai_summary": {
@@ -1427,9 +1157,7 @@
       },
       "previous": {
         "date": "2026-09-10",
-        "weekday": "목",
-        "start": "10:00",
-        "end": "11:30"
+        "weekday": "목"
       },
       "raw_memo": "윤 대표님 직접 맛보고 결정하는 타입 → 샘플부터. 유통채널 넓히는 얘기, 초도물량 협의. 샘플 + 가격표 보내기",
       "ai_summary": {
@@ -1465,9 +1193,7 @@
       },
       "previous": {
         "date": "2026-09-30",
-        "weekday": "수",
-        "start": "16:00",
-        "end": "17:00"
+        "weekday": "수"
       },
       "raw_memo": "도입 요건이랑 보안 검토 항목 얘기했어요 강 팀장님 질문 엄청 많으시고 기술 용어로 설명해야 잘 통함 다음엔 기술 문서 미리 보내드리기 보안 체크리스트 회신해야 함",
       "ai_summary": {
@@ -1503,9 +1229,7 @@
       },
       "previous": {
         "date": "2026-09-23",
-        "weekday": "수",
-        "start": "13:00",
-        "end": "14:00"
+        "weekday": "수"
       },
       "raw_memo": "재무모델 가정 하나하나 근거 물어보심. 투자 조건도 논의. 서 이사님은 끝까지 확인하는 스타일 → 수치마다 출처 달아서 보내기. 근거자료 제출하고 수정 모델도 다시 전달해야 함.",
       "ai_summary": {
@@ -1541,9 +1265,7 @@
       },
       "previous": {
         "date": "2026-09-16",
-        "weekday": "수",
-        "start": "09:30",
-        "end": "10:30"
+        "weekday": "수"
       },
       "raw_memo": "오 과장님 말이 적은 편, 구두보다 서면 확인 선호. 갱신 단가랑 SLA 얘기함. 합의 내용은 메일로 정리해서 보내기. SLA 약정서 초안도 송부.",
       "ai_summary": {
@@ -1566,9 +1288,11 @@
 
   /*
    * 기준 시각
-   * - 페이지를 연 실제 현재 시각을 씁니다.
-   * - 확인용으로 ?now=2026-10-12T13:20 처럼 시작 시각을 정할 수도 있습니다. (그 뒤로 실제 시간만큼 흐름)
+   * - 기본값은 시안과 같은 장면(10/9 금 09:41)입니다. 페이지를 연 뒤로는 실제 시간만큼 흘러갑니다.
+   * - 주소 뒤에 ?now=live 를 붙이면 실제 현재 시각으로 계산합니다.
+   * - ?now=2026-10-09T09:00 처럼 원하는 시각을 넣어 볼 수도 있습니다. (② 시안 장면)
    */
+  const DEMO_NOW = '2026-10-09T09:41';
   const REMIND_BEFORE_MIN = 60; // 알림 발송: 미팅 시작 1시간 전
   const DASH = '\u2012';        // 10:00 ‒ 12:00
 
@@ -1588,8 +1312,9 @@
   }
 
   const nowParam = new URLSearchParams(location.search).get('now');
-  const fixedStart = parseNowParam(nowParam);
-  const offset = fixedStart ? fixedStart.getTime() - Date.now() : 0;
+  const useLive = nowParam === 'live';
+  const startAt = parseNowParam(nowParam) || toDate(...DEMO_NOW.split('T'));
+  const offset = useLive ? 0 : startAt.getTime() - Date.now();
 
   function getNow() {
     const n = new Date(Date.now() + offset);
@@ -1614,9 +1339,8 @@
   }
 
   /* 남은 시간: 24시간 초과 → 일, 1시간 이상 ~ 24시간 이하 → 시간, 1시간 미만 → 분 (소수점 이하 버림) */
-  function remainingLabel(start, now, end) {
+  function remainingLabel(start, now) {
     const mins = minutesBetween(now, start);
-    if (end && now >= end) return '종료';
     if (mins <= 0) return '진행 중';
     if (mins < 60) return mins + '분 후 시작';
     if (mins <= 24 * 60) return Math.floor(mins / 60) + '시간 후 시작';
@@ -1636,297 +1360,23 @@
     const day = isSameDay(m.startAt, now)
       ? '오늘'
       : monthDay(m.upcoming.date) + '(' + m.upcoming.weekday + ')';
-    return day + ' ' + (m.upcoming.end ? m.upcoming.start + ' ' + DASH + ' ' + m.upcoming.end : m.upcoming.start);
+    return day + ' ' + m.upcoming.start + ' ' + DASH + ' ' + m.upcoming.end;
   }
 
   /* ── 데이터 ───────────────────────────────── */
   const meetings = MEETINGS.map(function (m) {
-    const startAt = toDate(m.upcoming.date, m.upcoming.start);
-    let endAt = toDate(m.upcoming.date, m.upcoming.end);
-    if (endAt <= startAt) endAt = new Date(endAt.getTime() + 24 * 3600000); // 자정을 넘기는 미팅
-    return Object.assign({}, m, { startAt: startAt, endAt: endAt });
-  });
-
-  /*
-   * 시연용: AA 회계법인 미팅은 페이지를 열 때마다 '지금 + 50분' 이후의 첫 10분 단위 시각에 시작
-   * - 예) 14:07에 열면 14:57 → 15:00 시작(53분 후). 남은 시간은 항상 50~59분이라 1시간 미만입니다.
-   * - 그래서 1시간 전 알림은 이미 발송된 상태로 시작하고, 남은 시간이 1분씩 줄어듭니다.
-   * - 미팅 길이는 샘플 데이터 그대로(2시간), 새로고침하면 그 시점 기준으로 다시 맞춰집니다.
-   */
-  const LIVE_MEETING_ID = 1;
-  const LIVE_LEAD_MIN = 50;
-  (function shiftLiveMeeting() {
-    const m = meetings.find(function (x) { return x.id === LIVE_MEETING_ID; });
-    if (!m) return;
-    const duration = m.endAt - m.startAt;
-    const start = new Date(getNow().getTime() + LIVE_LEAD_MIN * 60000);
-    start.setMinutes(start.getMinutes() + (10 - start.getMinutes() % 10) % 10); // 10분 단위로 올림
-    const end = new Date(start.getTime() + duration);
-    const hhmm = function (d) { return pad2(d.getHours()) + ':' + pad2(d.getMinutes()); };
-    m.upcoming = Object.assign({}, m.upcoming, {
-      date: toISO(start),
-      weekday: ['일', '월', '화', '수', '목', '금', '토'][start.getDay()],
-      start: hhmm(start),
-      end: hhmm(end)
+    return Object.assign({}, m, {
+      startAt: toDate(m.upcoming.date, m.upcoming.start),
+      endAt: toDate(m.upcoming.date, m.upcoming.end)
     });
-    m.startAt = start;
-    m.endAt = end;
-  })();
+  });
 
   function findMeeting(id) {
     return meetings.find(function (m) { return m.id === id; }) || null;
   }
 
-  /*
-   * 저장한 메모 (이 기기의 브라우저에만 저장)
-   * 다시 열어도 남아 있고, 다른 기기나 다른 사람에게는 보이지 않습니다.
-   * 브라우저 저장이 막힌 환경(일부 미리보기 창)에서는 이번에 열어 둔 동안만 기억합니다.
-   */
-  const NOTES_KEY = 'meetple:notes:v1';
-  let notesPersist = true;
-
-  function validNote(n) {
-    return n && typeof n.id === 'string' && /^[a-z0-9]+$/.test(n.id) &&
-      /^\d{4}-\d{2}-\d{2}$/.test(n.date || '') && n.summary && typeof n.summary === 'object';
-  }
-
-  function loadNotes() {
-    try {
-      const raw = window.localStorage.getItem(NOTES_KEY);
-      const list = raw ? JSON.parse(raw) : [];
-      return Array.isArray(list) ? list.filter(validNote) : [];
-    } catch (err) {
-      notesPersist = false;
-      return [];
-    }
-  }
-
-  function saveNotes() {
-    try {
-      window.localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
-      notesPersist = true;
-    } catch (err) {
-      notesPersist = false;
-    }
-    return notesPersist;
-  }
-
-  const notes = loadNotes();
-
-  // 삭제한 샘플 기록(직전 미팅) id 목록
-  const HIDDEN_KEY = 'meetple:hidden-samples:v1';
-  const hiddenSamples = (function () {
-    try {
-      const raw = window.localStorage.getItem(HIDDEN_KEY);
-      const list = raw ? JSON.parse(raw) : [];
-      return new Set(Array.isArray(list) ? list.filter(Number.isInteger) : []);
-    } catch (err) {
-      notesPersist = false;
-      return new Set();
-    }
-  })();
-  function saveHidden() {
-    try {
-      window.localStorage.setItem(HIDDEN_KEY, JSON.stringify(Array.from(hiddenSamples)));
-      notesPersist = true;
-    } catch (err) {
-      notesPersist = false;
-    }
-  }
-  function isSampleRecordVisible(m) { return !hiddenSamples.has(m.id); }
-
-  // 삭제한 샘플 예정 미팅(이번 미팅) id 목록
-  const PLANS_KEY = 'meetple:hidden-plans:v1';
-  const hiddenPlans = (function () {
-    try {
-      const raw = window.localStorage.getItem(PLANS_KEY);
-      const list = raw ? JSON.parse(raw) : [];
-      return new Set(Array.isArray(list) ? list.filter(Number.isInteger) : []);
-    } catch (err) {
-      notesPersist = false;
-      return new Set();
-    }
-  })();
-  function saveHiddenPlans() {
-    try {
-      window.localStorage.setItem(PLANS_KEY, JSON.stringify(Array.from(hiddenPlans)));
-      notesPersist = true;
-    } catch (err) {
-      notesPersist = false;
-    }
-  }
-
-  function findNote(id) {
-    return notes.find(function (n) { return n.id === id; }) || null;
-  }
-
-  function companyKey(name) { return String(name || '').replace(/\s+/g, '').toLowerCase(); }
-
-  // 이 날짜·회사로 저장한 기록 (있으면 그 미팅은 끝난 것으로 봄)
-  function noteFor(date, company) {
-    const c = companyKey(company);
-    return notes.find(function (n) { return n.date === date && companyKey(n.company) === c; }) || null;
-  }
-
-  /*
-   * 직접 추가한 예정 미팅 (이 기기의 브라우저에 저장)
-   * 샘플 미팅과 합쳐 schedule 하나로 홈·알림·캘린더·② 화면에서 같이 씁니다.
-   */
-  const MEETINGS_KEY = 'meetple:meetings:v1';
-  const TIME_RE = /^\d{2}:\d{2}$/;
-  function validUserMeeting(u) {
-    return u && typeof u.id === 'string' && /^m[a-z0-9]+$/.test(u.id) &&
-      /^\d{4}-\d{2}-\d{2}$/.test(u.date || '') && TIME_RE.test(u.start || '') &&
-      (!u.end || TIME_RE.test(u.end)) && typeof u.company === 'string' && typeof u.contact === 'string';
-  }
-  const userMeetings = (function () {
-    try {
-      const raw = window.localStorage.getItem(MEETINGS_KEY);
-      const list = raw ? JSON.parse(raw) : [];
-      return Array.isArray(list) ? list.filter(validUserMeeting) : [];
-    } catch (err) {
-      notesPersist = false;
-      return [];
-    }
-  })();
-  function saveUserMeetings() {
-    try {
-      window.localStorage.setItem(MEETINGS_KEY, JSON.stringify(userMeetings));
-      notesPersist = true;
-    } catch (err) {
-      notesPersist = false;
-    }
-  }
-
-  const WD = ['일', '월', '화', '수', '목', '금', '토'];
-  function toScheduleItem(u) {
-    const startAt = toDate(u.date, u.start);
-    // 종료 시간을 비워 두면 1시간짜리로 보고 '진행 중/종료'를 계산
-    let endAt = u.end ? toDate(u.date, u.end) : new Date(startAt.getTime() + 3600000);
-    if (endAt <= startAt) endAt = new Date(endAt.getTime() + 24 * 3600000);
-    return {
-      id: u.id,
-      user: true,
-      company: u.company,
-      contactText: u.contact,
-      upcoming: { date: u.date, weekday: WD[startAt.getDay()], start: u.start, end: u.end || '' },
-      startAt: startAt,
-      endAt: endAt
-    };
-  }
-
-  let schedule = [];
-  function rebuildSchedule() {
-    schedule = meetings
-      .filter(function (m) { return !hiddenPlans.has(m.id); })
-      .concat(userMeetings.map(toScheduleItem));
-  }
-
-  /* 예정된 미팅 삭제: 직접 추가한 미팅은 지우고, 샘플 미팅은 이 기기에서 숨김 */
-  function deleteScheduled(id) {
-    const m = findScheduled(id);
-    if (!m) return false;
-    if (m.user) {
-      const i = userMeetings.findIndex(function (u) { return u.id === m.id; });
-      if (i !== -1) userMeetings.splice(i, 1);
-      saveUserMeetings();
-    } else {
-      hiddenPlans.add(m.id);
-      saveHiddenPlans();
-    }
-    rebuildSchedule();
-    rebuildCalEvents();
-    return true;
-  }
-  rebuildSchedule();
-  function findScheduled(id) {
-    const k = String(id);
-    return schedule.find(function (m) { return String(m.id) === k; }) || null;
-  }
-
-  // 담당자 표기: 짧게(김OO 팀장) / 전체(김OO 팀장 · 재무팀)
-  function contactShort(m) { return m.user ? m.contactText : m.contact.name + ' ' + m.contact.position; }
-  function contactFull(m) { return m.user ? m.contactText : contactLabel(m); }
-
-  /*
-   * 이 미팅의 직전 미팅 기록: 같은 회사의 기록 중 이 미팅 날짜보다 앞선 가장 최근 것
-   * (직접 저장한 메모 + 샘플 기록, 같은 날이면 직접 저장한 메모 우선)
-   */
-  function previousRecordFor(item) {
-    const c = companyKey(item.company);
-    const before = item.upcoming.date;
-    const list = [];
-    notes.forEach(function (n) {
-      if (companyKey(n.company) === c && n.date < before) {
-        list.push({ kind: 'note', date: n.date, lines: n.lines || [], keywords: n.keywords || [], hash: '#note-' + n.id });
-      }
-    });
-    meetings.forEach(function (m) {
-      if (companyKey(m.company) === c && m.previous.date < before && isSampleRecordVisible(m) &&
-          !noteFor(m.previous.date, m.company)) {
-        list.push({ kind: 'sample', date: m.previous.date, lines: m.summary_lines || [], keywords: m.keywords || [], hash: '#detail-' + m.id });
-      }
-    });
-    list.sort(function (a, b) {
-      return b.date.localeCompare(a.date) || (a.kind === 'note' ? -1 : 1);
-    });
-    return list[0] || null;
-  }
-
-  // 샘플 기록 삭제 = 이 기기에서 숨김
-  /* 전체 초기화: 직접 저장한 기록 삭제 + 숨긴 샘플 기록 복구 (이 기기의 저장 공간 비우기) */
-  function resetAllRecords() {
-    notes.splice(0, notes.length);
-    hiddenSamples.clear();
-    hiddenPlans.clear();
-    userMeetings.splice(0, userMeetings.length);
-    rebuildSchedule();
-    try {
-      window.localStorage.removeItem(NOTES_KEY);
-      window.localStorage.removeItem(HIDDEN_KEY);
-      window.localStorage.removeItem(MEETINGS_KEY);
-      window.localStorage.removeItem(PLANS_KEY);
-    } catch (err) { /* 저장이 막힌 환경: 화면 안 기록만 비움 */ }
-    rebuildCalEvents();
-    Object.keys(memoState).forEach(function (k) {
-      memoState[k].noteId = null;
-      memoState[k].savedSig = null;
-    });
-  }
-
-  function hideSample(id) {
-    hiddenSamples.add(id);
-    saveHidden();
-    rebuildCalEvents();
-    return true;
-  }
-
-  /* 기록 삭제: 저장소에서 지우고, 메모 화면에 남은 '저장됨' 표시도 함께 정리 */
-  function deleteNote(id) {
-    const i = notes.findIndex(function (n) { return n.id === id; });
-    if (i === -1) return false;
-    notes.splice(i, 1);
-    saveNotes();
-    rebuildCalEvents();
-    Object.keys(memoState).forEach(function (k) {
-      const st = memoState[k];
-      if (st.noteId === id) { st.noteId = null; st.savedSig = null; }
-    });
-    return true;
-  }
-
   /* ── DOM 유틸 ─────────────────────────────── */
   const $ = function (id) { return document.getElementById(id); };
-
-  function revealAboveTabbar(target) {
-    const bar = document.querySelector('.tabbar');
-    const shown = bar && getComputedStyle(bar).display !== 'none'; // 입력 중에는 탭이 숨겨짐
-    const limit = shown ? bar.getBoundingClientRect().top : window.innerHeight;
-    const over = target.getBoundingClientRect().bottom + 16 - limit;
-    if (over <= 0) return;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollBy({ top: over, behavior: reduce ? 'auto' : 'smooth' });
-  }
 
   function goArrow() {
     const a = el('span', 'go-arrow', '›');
@@ -1946,11 +1396,8 @@
     home: { el: $('screen-home'), tab: 'home', focus: 'home-title' },
     reminder: { el: $('screen-reminder'), tab: 'inherit', defaultTab: 'home', focus: 'reminder-title' },
     detail: { el: $('screen-detail'), tab: 'inherit', defaultTab: 'calendar', focus: 'detail-title' },
-    note: { el: $('screen-detail'), tab: 'inherit', defaultTab: 'calendar', focus: 'detail-title' },
     memo: { el: $('screen-memo'), tab: 'memo', focus: 'memo-title' },
     notifications: { el: $('screen-notifications'), tab: null, focus: 'notifications-title' },
-    more: { el: $('screen-more'), tab: 'more', focus: 'more-title' },
-    add: { el: $('screen-add'), tab: 'inherit', defaultTab: 'home', focus: 'add-title' },
     calendar: { el: $('screen-calendar'), tab: 'calendar', focus: 'calendar-title' }
   };
 
@@ -1968,18 +1415,12 @@
 
   function parseRoute(hash) {
     const h = (hash || '').replace(/^#/, '');
-    const r = /^reminder-([a-z0-9]+)$/.exec(h);
-    if (r && findScheduled(r[1])) return { name: 'reminder', id: r[1] };
-    if (h === 'add') return { name: 'add' };
+    const r = /^reminder-(\d+)$/.exec(h);
+    if (r && findMeeting(Number(r[1]))) return { name: 'reminder', id: Number(r[1]) };
     if (h === 'notifications') return { name: 'notifications' };
     if (h === 'calendar') return { name: 'calendar' };
-    if (h === 'more') return { name: 'more' };
-    const nm = /^note-([a-z0-9]+)$/.exec(h);
-    if (nm && findNote(nm[1])) return { name: 'note', id: nm[1] };
     const dm = /^detail-(\d+)$/.exec(h);
-    if (dm && findMeeting(Number(dm[1])) && isSampleRecordVisible(findMeeting(Number(dm[1])))) {
-      return { name: 'detail', id: Number(dm[1]) };
-    }
+    if (dm && findMeeting(Number(dm[1]))) return { name: 'detail', id: Number(dm[1]) };
     const mm = /^memo(?:-(\d+))?$/.exec(h);
     if (mm) {
       const id = mm[1] ? Number(mm[1]) : defaultMemoId();
@@ -1995,27 +1436,23 @@
   let currentTab = null;
 
   /* ── ① 홈 ─────────────────────────────────── */
-  // 블루 미팅 카드 (홈의 가장 가까운 미팅, ② 화면 상단에서 같이 씀)
-  function meetingInfoCard(m, now, label) {
+  function nextCard(m, now) {
     const article = el('article', 'card card--next');
-    article.setAttribute('aria-label', label);
+    article.setAttribute('aria-label', '가장 가까운 미팅');
+
     article.append(
-      el('span', 'chip', remainingLabel(m.startAt, now, m.endAt)),
+      el('span', 'chip', remainingLabel(m.startAt, now)),
       el('h2', 'card__title', m.company),
       el('p', 'card__time num', dateTimeLabel(m, now)),
-      el('p', 'card__contact', '담당자: ' + contactShort(m))
+      el('p', 'card__contact', '담당자: ' + m.contact.name + ' ' + m.contact.position)
     );
-    return article;
-  }
 
-  function nextCard(m, now) {
-    const article = meetingInfoCard(m, now, '가장 가까운 미팅');
-
-    // ②로 가는 버튼: 직전 기록이 있으면 '직전 미팅 요약 (날짜)', 없으면 '미팅 정보 보기'
-    const prev = previousRecordFor(m);
     const link = el('a', 'card__link');
     link.href = '#reminder-' + m.id;
-    link.append(el('span', 'num', prev ? '직전 미팅 요약 (' + monthDay(prev.date) + ')' : '미팅 정보 보기'), goArrow());
+    link.append(
+      el('span', 'num', '직전 미팅 요약 (' + monthDay(m.previous.date) + ')'),
+      goArrow()
+    );
     article.append(link);
     return article;
   }
@@ -2030,11 +1467,11 @@
   }
 
   function renderHome(now) {
-    const upcoming = schedule
-      .filter(function (m) { return m.endAt > now && !noteFor(m.upcoming.date, m.company); })
+    const upcoming = meetings
+      .filter(function (m) { return m.endAt > now; })
       .sort(function (a, b) { return a.startAt - b.startAt; });
 
-    const key = 'home|' + notes.length + '|' + hiddenSamples.size + '|' + upcoming.map(function (m, i) {
+    const key = 'home|' + upcoming.map(function (m, i) {
       return m.id + ':' + dateTimeLabel(m, now) + (i === 0 ? ':' + remainingLabel(m.startAt, now) : '');
     }).join('|');
     if (key === lastKey) return;
@@ -2058,34 +1495,37 @@
 
   /* ── ② 미팅 1시간 전 알림 ─────────────────── */
   function renderReminder(now, id) {
-    const m = findScheduled(id);
-    const prev = previousRecordFor(m);
-    const key = 'reminder|' + id + '|' + remainingLabel(m.startAt, now, m.endAt) + '|' + dateTimeLabel(m, now) +
-      '|' + (prev ? prev.hash : '');
+    const m = findMeeting(id);
+    const sentAt = sentAtOf(m);
+    const isSent = now >= sentAt;
+    const received = isSent ? receivedLabel(sentAt, now) : '';
+
+    const key = 'reminder|' + id + '|' + received;
     if (key === lastKey) return;
     lastKey = key;
 
-    // 상단: 홈과 같은 블루 미팅 카드 (남은 시간이 1분마다 갱신)
-    $('reminder-card').replaceChildren(meetingInfoCard(m, now, '이번 미팅'));
+    // 알림이 발송된 뒤에는 네이비 알림 카드, 발송 전(다른 화면에서 미리 볼 때)에는 ‹ 회사명 헤더
+    $('reminder-push').hidden = !isSent;
+    $('reminder-backbar').hidden = isSent;
+    $('reminder-push-meta').textContent = 'meetple · ' + received;
+    $('reminder-push-title').textContent = pushTitle(m);
+    $('reminder-company').textContent = m.company;
 
-    $('reminder-title').textContent = prev ? '직전 미팅 요약 (' + monthDay(prev.date) + ')' : '직전 미팅 요약';
-    $('reminder-empty').hidden = !!prev;
+    $('reminder-title').textContent = '직전 미팅 요약 (' + monthDay(m.previous.date) + ')';
 
     const lines = document.createDocumentFragment();
-    (prev ? prev.lines : []).slice(0, 3).forEach(function (t) { lines.append(el('li', null, t)); });
+    (m.summary_lines || []).slice(0, 3).forEach(function (t) { lines.append(el('li', null, t)); });
     $('reminder-lines').replaceChildren(lines);
 
     const chips = document.createDocumentFragment();
-    (prev ? prev.keywords : []).slice(0, 2).forEach(function (t) {
+    (m.keywords || []).slice(0, 2).forEach(function (t) {
       const li = el('li');
       li.append(el('span', 'chip', t));
       chips.append(li);
     });
     $('reminder-chips').replaceChildren(chips);
 
-    const detailBtn = $('reminder-detail');
-    detailBtn.hidden = !prev;
-    if (prev) detailBtn.href = prev.hash; // ⑤ 요약·상세
+    $('reminder-detail').href = '#detail-' + m.id; // ⑤ 요약·상세
     document.title = '직전 미팅 요약 · ' + m.company + ' · meetple';
   }
 
@@ -2096,8 +1536,8 @@
   function getMemoState(m) {
     if (!memoState[m.id]) {
       memoState[m.id] = {
-        date: '', start: '', end: '', company: '', contact: '', text: '', // 모두 사용자가 직접 입력 (빈 칸으로 시작, 시간은 선택)
-        summary: null, savedSig: null, busy: false, noMatch: false, noteId: null
+        date: '', company: '', contact: '', text: '', // 날짜·회사명·담당자·메모 모두 사용자가 직접 입력 (빈 칸으로 시작)
+        summary: null, savedSig: null, busy: false, noMatch: false
       };
     }
     return memoState[m.id];
@@ -2147,56 +1587,23 @@
 
   /*
    * AI 정리 (시연용)
-   * 실제 AI를 부르지 않고, 입력한 메모와 맞는 샘플의 요약을 잠시 뒤에 돌려줍니다.
+   * 실제 AI를 부르지 않고, 입력한 메모와 맞는 샘플의 ai_summary를 잠시 뒤에 돌려줍니다.
    * 맞는 샘플이 없으면 null을 돌려줍니다.
-   * 실제 AI를 붙일 때는 이 함수만 바꾸면 됩니다.
-   * 반환 형식: { summary: { 성향, 대응, 논의, 후속 }, lines: [요약 3줄], keywords: [대응, 성향 칩] }
+   * 실제 AI를 붙일 때는 이 함수만 바꾸면 됩니다. 반환 형식: { 성향, 대응, 논의, 후속 }
    */
   function summarizeMemo(meeting, text) {
     return new Promise(function (resolve) {
       setTimeout(function () {
         const sample = findSampleByMemo(text);
-        resolve(sample ? { summary: sample.ai_summary, lines: sample.summary_lines || [], keywords: sample.keywords || [] } : null);
+        resolve(sample ? sample.ai_summary : null);
       }, 900);
     });
-  }
-
-  /*
-   * 저장: 기록 하나 = 미팅 하나(날짜 + 회사명)
-   * 같은 날짜·회사의 기록이 있으면 고쳐 쓰고, 날짜나 회사가 다르면 새 기록으로 추가합니다.
-   * (저장한 뒤 날짜·회사를 바꿔 다음 미팅 메모를 써도 앞의 기록은 그대로 남음)
-   */
-  function upsertNote(st, result) {
-    const company = st.company.trim();
-    let note = noteFor(st.date, company);
-    if (!note) {
-      note = { id: 'n' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6) };
-      notes.push(note);
-    }
-    Object.assign(note, {
-      date: st.date,
-      start: st.start || '',
-      end: st.end || '',
-      company: company,
-      contact: st.contact.trim(),
-      text: st.text,
-      summary: result.summary,
-      lines: result.lines,
-      keywords: result.keywords || [],
-      savedAt: Date.now()
-    });
-    st.noteId = note.id;
-    saveNotes();
-    rebuildCalEvents();
-    return note;
   }
 
   const memoInput = $('memo-input');
   const memoDate = $('memo-date');
   const memoCompany = $('memo-company');
   const memoContact = $('memo-contact');
-  const memoStart = $('memo-start');
-  const memoEnd = $('memo-end');
   const memoSubmit = $('memo-submit');
 
   /* 담당자 표기: 샘플 데이터 시트의 '기본 정보 - 상대방'과 같은 형식 (김OO 팀장 · 재무팀) */
@@ -2219,16 +1626,14 @@
   function uniq(list) { return Array.from(new Set(list)); }
 
   // 회사명 추천: 담당자를 먼저 입력했으면 그 담당자의 회사만
-  function companyOptionsFor(contactInput) {
-    return uniq(matchBy(contactInput.value, contactLabel).map(function (m) { return m.company; }));
+  function companyOptions() {
+    return uniq(matchBy(memoContact.value, contactLabel).map(function (m) { return m.company; }));
   }
-  function contactOptionsFor(companyInput) {
-    return uniq(matchBy(companyInput.value, function (m) { return m.company; }).map(contactLabel));
-  }
-  function companyOptions() { return companyOptionsFor(memoContact); }
 
   // 담당자 추천: 회사명을 먼저 입력했으면 그 회사 담당자만
-  function contactOptions() { return contactOptionsFor(memoCompany); }
+  function contactOptions() {
+    return uniq(matchBy(memoCompany.value, function (m) { return m.company; }).map(contactLabel));
+  }
 
   /*
    * 입력칸 + 추천 목록
@@ -2321,12 +1726,7 @@
     return m + '/' + d + '(' + WEEKDAYS[new Date(y, m - 1, d).getDay()] + ')';
   }
 
-  function memoSig(st) { return [st.date, st.start, st.end, st.company.trim(), st.contact.trim(), st.text].join('|'); }
-
-  /* 10:00 ‒ 12:00 (하나만 입력하면 그 시간만) */
-  function timeRange(start, end) {
-    return [start, end].filter(Boolean).join(' ' + DASH + ' ');
-  }
+  function memoSig(st) { return [st.date, st.company.trim(), st.contact.trim(), st.text].join('|'); }
   function memoReady(st) {
     return !!st.date && st.company.trim() !== '' && st.contact.trim() !== '' && st.text.trim() !== '';
   }
@@ -2345,18 +1745,10 @@
     const dateText = $('memo-date-text');
     dateText.textContent = st.date ? dateLabel(st.date) : '선택해 주세요';
     dateText.classList.toggle('is-empty', !st.date);
-    [['memo-start-text', st.start, '시작'], ['memo-end-text', st.end, '종료']].forEach(function (t) {
-      $(t[0]).textContent = t[1] || t[2];
-      $(t[0]).classList.toggle('is-empty', !t[1]);
-    });
 
     $('memo-result').hidden = !st.summary;
     $('memo-error').hidden = !st.noMatch;
-    const note = st.noteId && findNote(st.noteId);
-    $('memo-status').hidden = !(st.summary && note && st.savedSig === memoSig(st));
-    $('memo-status').textContent = notesPersist ? '자동 저장됨' : '임시 저장됨';
-    $('memo-open').hidden = !note;
-    if (note) $('memo-open').href = '#note-' + note.id;
+    $('memo-status').hidden = !(st.summary && st.savedSig === memoSig(st));
 
     if (st.summary) {
       const frag = document.createDocumentFragment();
@@ -2376,10 +1768,7 @@
 
     const m = findMeeting(id);
     const st = getMemoState(m);
-    closeLoadList();
     memoDate.value = st.date;
-    memoStart.value = st.start;
-    memoEnd.value = st.end;
     memoCompany.value = st.company;
     memoContact.value = st.contact;
     memoInput.value = st.text;
@@ -2393,8 +1782,6 @@
     const m = findMeeting(route.id);
     const st = getMemoState(m);
     st.date = memoDate.value;
-    st.start = memoStart.value;
-    st.end = memoEnd.value;
     st.company = memoCompany.value;
     st.contact = memoContact.value;
     st.text = memoInput.value;
@@ -2402,7 +1789,7 @@
     autosize();
     updateMemoUI(m);
   }
-  [memoDate, memoStart, memoEnd, memoCompany, memoContact, memoInput].forEach(function (input) {
+  [memoDate, memoCompany, memoContact, memoInput].forEach(function (input) {
     input.addEventListener('input', onMemoEdit);
     input.addEventListener('change', onMemoEdit);
   });
@@ -2416,140 +1803,79 @@
     $('memo-live').textContent = '';
     updateMemoUI(m);
 
-    summarizeMemo(m, st.text).then(function (result) {
-      const summary = result ? result.summary : null;
+    summarizeMemo(m, st.text).then(function (summary) {
       st.busy = false;
       st.summary = summary;               // 정리 실패면 null → 요약 박스 숨김
       st.savedSig = summary ? sig : null;
       st.noMatch = !summary;
-      if (result) upsertNote(st, result); // 정리에 성공하면 저장
       if (route.name !== 'memo' || route.id !== m.id) return;
       updateMemoUI(m);
       if (!summary) {
         $('memo-live').textContent = $('memo-error').textContent;
         return;
       }
-      $('memo-live').textContent = 'AI 메모 요약 ' + $('memo-status').textContent;
-      revealAboveTabbar($('memo-open').hidden ? $('memo-result') : $('memo-open'));
+      $('memo-live').textContent = 'AI 메모 요약 자동 저장됨';
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      $('memo-result').scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
     });
   });
 
   // 휴대폰(터치)에서 입력하는 동안 하단 탭 숨김
   const isTouch = window.matchMedia('(pointer: coarse)').matches;
-  [memoDate, memoStart, memoEnd, memoCompany, memoContact, memoInput].forEach(function (input) {
+  [memoDate, memoCompany, memoContact, memoInput].forEach(function (input) {
     input.addEventListener('focus', function () { if (isTouch) document.body.classList.add('is-typing'); });
     input.addEventListener('blur', function () { document.body.classList.remove('is-typing'); });
   });
 
   /* ── ⑤ 요약·상세 ─────────────────────────── */
-  function fillDetail(v) {
-    // 헤더: '9/28(월) 10:00 ‒ 12:00' 과 '회사명'을 각각 한 덩어리로 (좁으면 두 줄)
-    const when = v.date + (v.time ? ' ' + v.time : '');
-    $('detail-title').replaceChildren(el('span', 'num', when), ' ', el('span', null, v.company));
+  function renderDetail(now, id) {
+    const key = 'detail|' + id;
+    if (key === lastKey) return;
+    lastKey = key;
+
+    const m = findMeeting(id);
+    const head = monthDay(m.previous.date) + '(' + m.previous.weekday + ') ' + m.company;
+    $('detail-title').textContent = head;
 
     // 요약: ②와 같은 3줄
     const lines = document.createDocumentFragment();
-    (v.lines || []).slice(0, 3).forEach(function (t) { lines.append(el('li', null, t)); });
+    (m.summary_lines || []).slice(0, 3).forEach(function (t) { lines.append(el('li', null, t)); });
     $('detail-lines').replaceChildren(lines);
 
     // 상세 내용: 담당자 → 성향 → 대응 → 논의 → 후속 (③ AI 메모 요약 값 그대로)
     const rows = document.createDocumentFragment();
     const meta = el('div', 'detail-row detail-row--meta');
-    meta.append(el('dt', null, '담당자'), el('dd', null, v.contact));
+    meta.append(el('dt', null, '담당자'), el('dd', null, contactLabel(m)));
     rows.append(meta);
     SUMMARY_LABELS.forEach(function (label) {
       const row = el('div', 'detail-row');
-      row.append(el('dt', null, label), el('dd', null, v.summary[label] || ''));
+      row.append(el('dt', null, label), el('dd', null, m.ai_summary[label] || ''));
       rows.append(row);
     });
     $('detail-rows').replaceChildren(rows);
 
-    // 메모 원문: ③에서 입력한 그대로
-    $('detail-memo').textContent = v.memo || '';
-    document.title = when + ' ' + v.company + ' · meetple';
-  }
+    // 메모 원문: ③에서 처음 입력한 그대로
+    $('detail-memo').textContent = m.raw_memo || '';
 
-  // 기록 삭제: 확인 창은 닫힌 상태로 시작
-  function resetDeleteUI() {
-    $('delete-confirm').hidden = true;
-    $('delete-ask').setAttribute('aria-expanded', 'false');
-  }
-
-  // 샘플 데이터의 직전 미팅 기록
-  function renderDetail(now, id) {
-    const key = 'detail|' + id;
-    if (key === lastKey) return;
-    lastKey = key;
-    const m = findMeeting(id);
-    resetDeleteUI();
-    fillDetail({
-      date: monthDay(m.previous.date) + '(' + m.previous.weekday + ')',
-      time: timeRange(m.previous.start, m.previous.end),
-      company: m.company,
-      lines: m.summary_lines,
-      contact: contactLabel(m),
-      summary: m.ai_summary,
-      memo: m.raw_memo
-    });
-  }
-
-  // ③에서 저장한 기록
-  function renderNote(now, id) {
-    const n = findNote(id);
-    if (!n) return; // 방금 삭제한 기록
-    const key = 'note|' + id + '|' + n.savedAt;
-    if (key === lastKey) return;
-    lastKey = key;
-    resetDeleteUI();
-    fillDetail({
-      date: dateLabel(n.date),
-      time: timeRange(n.start, n.end),
-      company: n.company,
-      lines: n.lines,
-      contact: n.contact,
-      summary: n.summary,
-      memo: n.text
-    });
+    document.title = head + ' · meetple';
   }
 
   /* ── ④ 캘린더 ───────────────────────────── */
   function pad2(n) { return String(n).padStart(2, '0'); }
   function toISO(d) { return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); }
 
-  /*
-   * 날짜별 미팅
-   * - 기록 있음: 샘플의 직전 미팅(record) + ③에서 저장한 메모(note)
-   *   같은 날짜·같은 회사의 샘플 기록이 있으면 저장한 메모가 그 자리를 대신합니다.
-   * - 예정된 미팅: 샘플의 이번 미팅(plan)
-   *   같은 날짜·같은 회사로 메모를 저장하면 미팅이 끝난 것으로 보고 예정에서 뺍니다.
-   * (회사명은 띄어쓰기·대소문자를 무시하고 비교)
-   */
-  let CAL_EVENTS = {};
-  function rebuildCalEvents() {
-    const map = {};
-    function add(d, ev) { (map[d] = map[d] || []).push(ev); }
-    const savedKeys = new Set(notes.map(function (n) { return n.date + '|' + companyKey(n.company); }));
-    meetings.forEach(function (m) {
-      const c = companyKey(m.company);
-      if (!savedKeys.has(m.previous.date + '|' + c) && isSampleRecordVisible(m)) {
-        add(m.previous.date, { type: 'record', m: m });
-      }
+  // 날짜별 미팅: 직전 미팅 = 기록 있음, 이번 미팅 = 예정된 미팅
+  const CAL_EVENTS = {};
+  meetings.forEach(function (m) {
+    (CAL_EVENTS[m.previous.date] = CAL_EVENTS[m.previous.date] || []).push({ type: 'record', m: m });
+    (CAL_EVENTS[m.upcoming.date] = CAL_EVENTS[m.upcoming.date] || []).push({ type: 'plan', m: m });
+  });
+  Object.keys(CAL_EVENTS).forEach(function (d) {
+    CAL_EVENTS[d].sort(function (a, b) {
+      if (a.type !== b.type) return a.type === 'record' ? -1 : 1;
+      return a.type === 'plan' ? a.m.upcoming.start.localeCompare(b.m.upcoming.start) : 0;
     });
-    schedule.forEach(function (m) {
-      if (!savedKeys.has(m.upcoming.date + '|' + companyKey(m.company))) add(m.upcoming.date, { type: 'plan', m: m });
-    });
-    notes.forEach(function (n) { add(n.date, { type: 'note', n: n }); });
-    Object.keys(map).forEach(function (d) {
-      map[d].sort(function (a, b) {
-        const pa = a.type === 'plan', pb = b.type === 'plan';
-        if (pa !== pb) return pa ? 1 : -1;
-        if (pa) return a.m.upcoming.start.localeCompare(b.m.upcoming.start);
-        return (a.n ? a.n.savedAt : 0) - (b.n ? b.n.savedAt : 0);
-      });
-    });
-    CAL_EVENTS = map;
-  }
-  rebuildCalEvents();
+  });
 
   const calState = { y: null, m: null, selected: null };
 
@@ -2562,47 +1888,32 @@
   }
 
   function calCard(ev) {
+    const m = ev.m;
     const a = el('a', 'card cal-card');
     const title = el('p', 'card__title cal-card__title');
     const sub = el('p', 'cal-card__sub');
     const go = el('span', 'cal-card__go num');
-
-    if (ev.type === 'note') {
-      const n = ev.n;
-      a.href = '#note-' + n.id; // ⑤ 요약·상세 (저장한 기록)
-      a.append(el('span', 'chip', '기록 있음'));
-      const when = dateLabel(n.date) + (timeRange(n.start, n.end) ? ' ' + timeRange(n.start, n.end) : '');
-      title.append(el('span', 'nowrap num', when), ' ', el('span', null, n.company));
-      sub.textContent = '담당자: ' + n.contact;
-      go.append(el('span', null, '요약·상세 보기'), goArrow());
-      a.append(title, sub, go);
-      return a;
-    }
-
-    const m = ev.m;
-    const who = '담당자: ' + contactShort(m);
+    const who = '담당자: ' + m.contact.name + ' ' + m.contact.position;
 
     if (ev.type === 'record') {
       a.href = '#detail-' + m.id; // ⑤ 요약·상세
       a.append(el('span', 'chip', '기록 있음'));
       title.append(
-        el('span', 'nowrap num', monthDay(m.previous.date) + '(' + m.previous.weekday + ')' +
-          (m.previous.start ? ' ' + timeRange(m.previous.start, m.previous.end) : '')), ' ',
+        el('span', 'nowrap num', monthDay(m.previous.date) + '(' + m.previous.weekday + ')'), ' ',
         el('span', null, m.company)
       );
       sub.textContent = who;
       go.append(el('span', null, '요약·상세 보기'), goArrow());
     } else {
-      const prev = previousRecordFor(m);
+      a.href = '#reminder-' + m.id; // ② 직전 미팅 요약
       a.append(el('span', 'chip chip--outline', '예정된 미팅'));
       title.append(
         el('span', 'nowrap num', monthDay(m.upcoming.date) + '(' + m.upcoming.weekday + ') ' +
-          timeRange(m.upcoming.start, m.upcoming.end)), ' ',
+          m.upcoming.start + ' ' + DASH + ' ' + m.upcoming.end), ' ',
         el('span', null, m.company)
       );
       sub.textContent = who;
-      a.href = '#reminder-' + m.id; // ② 직전 미팅 요약 (직전 기록이 없으면 미팅 정보)
-      go.append(el('span', null, prev ? '직전 미팅 요약 (' + monthDay(prev.date) + ')' : '미팅 정보 보기'), goArrow());
+      go.append(el('span', null, '직전 미팅 요약 (' + monthDay(m.previous.date) + ')'), goArrow());
     }
     a.append(title, sub, go);
     return a;
@@ -2631,7 +1942,7 @@
     for (let d = 1; d <= days; d++) {
       const iso = y + '-' + pad2(mo + 1) + '-' + pad2(d);
       const evs = CAL_EVENTS[iso] || [];
-      const hasRecord = evs.some(function (e) { return e.type !== 'plan'; });
+      const hasRecord = evs.some(function (e) { return e.type === 'record'; });
       const hasPlan = evs.some(function (e) { return e.type === 'plan'; });
 
       const btn = el('button', 'cal-day');
@@ -2709,7 +2020,7 @@
 
   // 이미 발송된(미팅 시작 1시간 전이 지난) 알림만, 최근 것부터
   function renderNotifications(now) {
-    const sent = schedule
+    const sent = meetings
       .filter(function (m) { return now >= sentAtOf(m); })
       .sort(function (a, b) { return sentAtOf(b) - sentAtOf(a); });
 
@@ -2741,36 +2052,6 @@
     document.title = '알림 · meetple';
   }
 
-  /* ── 더보기 ─────────────────────────────── */
-  function renderMore(now) {
-    const key = 'more|' + notes.length + '|' + hiddenSamples.size + '|' + userMeetings.length + '|' +
-      hiddenPlans.size + '|' + notesPersist;
-    if (key === lastKey) return;
-    lastKey = key;
-
-    const has = notes.length || hiddenSamples.size || userMeetings.length || hiddenPlans.size;
-    const parts = [];
-    if (userMeetings.length) parts.push('추가한 미팅 ' + userMeetings.length + '건');
-    if (notes.length) parts.push('저장한 메모 ' + notes.length + '건');
-    if (hiddenPlans.size) parts.push('삭제한 샘플 미팅 ' + hiddenPlans.size + '건');
-    if (hiddenSamples.size) parts.push('삭제한 샘플 기록 ' + hiddenSamples.size + '건');
-    // 항목이 중간에서 갈라지지 않도록 하나씩 묶어서 표시
-    const count = $('more-count');
-    count.replaceChildren();
-    if (!has) count.textContent = '초기화할 기록이 없습니다.';
-    parts.forEach(function (t, i) {
-      if (i) count.append(' · ');
-      count.append(el('span', 'nowrap', t));
-    });
-    $('reset-ask').disabled = !has;
-    $('reset-confirm').hidden = true;
-    $('reset-ask').setAttribute('aria-expanded', 'false');
-    $('more-note').textContent = notesPersist
-      ? '기록은 이 기기의 브라우저에만 저장됩니다.'
-      : '이 화면에서는 기록이 저장되지 않아, 닫으면 처음 상태로 돌아갑니다.';
-    document.title = '더보기 · meetple';
-  }
-
   /* ── 화면 전환 ────────────────────────────── */
   function render() {
     const now = getNow();
@@ -2779,19 +2060,14 @@
     else if (route.name === 'notifications') renderNotifications(now);
     else if (route.name === 'calendar') renderCalendar(now);
     else if (route.name === 'detail') renderDetail(now, route.id);
-    else if (route.name === 'note') renderNote(now, route.id);
-    else if (route.name === 'more') renderMore(now);
-    else if (route.name === 'add') renderAdd(now);
     else renderHome(now);
   }
 
   function show(next, moveFocus) {
     route = next;
     lastKey = '';
-    $('plan-delete-confirm').hidden = true;
-    $('plan-delete-ask').setAttribute('aria-expanded', 'false');
     Object.keys(SCREENS).forEach(function (name) {
-      SCREENS[name].el.hidden = SCREENS[name].el !== SCREENS[route.name].el;
+      SCREENS[name].el.hidden = name !== route.name;
     });
     let activeTab = SCREENS[route.name].tab;
     if (activeTab === 'inherit') activeTab = currentTab || SCREENS[route.name].defaultTab;
@@ -2838,7 +2114,7 @@
     else navigate(HOME);
   }
 
-  // 화면 안의 # 링크는 모두 여기서 처리합니다. 없는 화면으로 가는 링크는 눌러도 머무릅니다.
+  // 화면 안의 # 링크는 모두 여기서 처리합니다. 아직 없는 화면(더보기)은 눌러도 머무릅니다.
   document.addEventListener('click', function (e) {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
@@ -2859,204 +2135,10 @@
 
   $('reminder-back').addEventListener('click', goBack);
   $('notifications-back').addEventListener('click', goBack);
-  $('add-back').addEventListener('click', goBack);
-
-  // 예정된 미팅 삭제: 한 번 더 확인한 뒤 지우고 이전 화면으로
-  $('plan-delete-ask').addEventListener('click', function () {
-    const open = $('plan-delete-confirm').hidden;
-    $('plan-delete-confirm').hidden = !open;
-    $('plan-delete-ask').setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open) {
-      $('plan-delete-cancel').focus({ preventScroll: true });
-      revealAboveTabbar($('plan-delete-confirm'));
-    }
-  });
-  $('plan-delete-cancel').addEventListener('click', function () {
-    $('plan-delete-confirm').hidden = true;
-    $('plan-delete-ask').setAttribute('aria-expanded', 'false');
-    $('plan-delete-ask').focus();
-  });
-  $('plan-delete-ok').addEventListener('click', function () {
-    if (route.name === 'reminder' && deleteScheduled(route.id)) {
-      $('reminder-live').textContent = '미팅을 삭제했습니다';
-      goBack();
-    }
-  });
-
-  /* ── 미팅 추가 ───────────────────────────── */
-  const addState = { date: '', start: '', end: '', company: '', contact: '' };
-  const addEls = {
-    date: $('add-date'), start: $('add-start'), end: $('add-end'),
-    company: $('add-company'), contact: $('add-contact')
-  };
-  function addTimeError() { return !!(addState.start && addState.end && addState.end <= addState.start); }
-  function addReady() {
-    return !!addState.date && !!addState.start && addState.company.trim() !== '' &&
-      addState.contact.trim() !== '' && !addTimeError();
-  }
-  function updateAddUI() {
-    [['add-date-text', addState.date ? dateLabel(addState.date) : '', '선택해 주세요'],
-     ['add-start-text', addState.start, '시작'],
-     ['add-end-text', addState.end, '종료']].forEach(function (t) {
-      $(t[0]).textContent = t[1] || t[2];
-      $(t[0]).classList.toggle('is-empty', !t[1]);
-    });
-    $('add-error').hidden = !addTimeError();
-    $('add-submit').disabled = !addReady();
-  }
-  function renderAdd() {
-    if (lastKey === 'add') return;
-    lastKey = 'add';
-    Object.keys(addEls).forEach(function (k) { addEls[k].value = addState[k]; });
-    updateAddUI();
-    document.title = '미팅 추가 · meetple';
-  }
-  Object.keys(addEls).forEach(function (k) {
-    const input = addEls[k];
-    const onEdit = function () { addState[k] = input.value; updateAddUI(); };
-    input.addEventListener('input', onEdit);
-    input.addEventListener('change', onEdit);
-    input.addEventListener('focus', function () { if (isTouch) document.body.classList.add('is-typing'); });
-    input.addEventListener('blur', function () { document.body.classList.remove('is-typing'); });
-  });
-  setupCombo(addEls.company, $('add-company-list'), function () { return companyOptionsFor(addEls.contact); });
-  setupCombo(addEls.contact, $('add-contact-list'), function () { return contactOptionsFor(addEls.company); });
-
-  $('add-submit').addEventListener('click', function () {
-    if (!addReady()) return;
-    userMeetings.push({
-      id: 'm' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-      date: addState.date,
-      start: addState.start,
-      end: addState.end || '',
-      company: addState.company.trim(),
-      contact: addState.contact.trim(),
-      createdAt: Date.now()
-    });
-    saveUserMeetings();
-    rebuildSchedule();
-    rebuildCalEvents();
-    Object.keys(addState).forEach(function (k) { addState[k] = ''; });
-    $('add-live').textContent = '미팅을 추가했습니다';
-    goBack(); // 들어온 화면(보통 홈)으로 돌아가 목록에서 바로 확인
-  });
-
-  /* ── 메모: 예정된 미팅 불러오기 ─────────────── */
-  function loadCandidates() {
-    const now = getNow();
-    return schedule
-      .filter(function (m) { return !noteFor(m.upcoming.date, m.company); })
-      .sort(function (a, b) { return Math.abs(a.startAt - now) - Math.abs(b.startAt - now); }); // 지금과 가까운 순
-  }
-  function closeLoadList() {
-    $('memo-load-list').hidden = true;
-    $('memo-load').setAttribute('aria-expanded', 'false');
-  }
-  $('memo-load').addEventListener('click', function () {
-    if (!$('memo-load-list').hidden) { closeLoadList(); return; }
-    const frag = document.createDocumentFragment();
-    const list = loadCandidates();
-    if (!list.length) {
-      const li = el('li');
-      li.append(el('p', 'empty', '불러올 예정된 미팅이 없습니다.'));
-      frag.append(li);
-    }
-    list.forEach(function (m) {
-      const btn = el('button', 'load-item');
-      btn.type = 'button';
-      btn.dataset.id = String(m.id);
-      btn.append(
-        el('p', 'load-item__when num', monthDay(m.upcoming.date) + '(' + m.upcoming.weekday + ') ' +
-          timeRange(m.upcoming.start, m.upcoming.end)),
-        el('p', 'load-item__who', m.company + ' · 담당자: ' + contactShort(m))
-      );
-      const li = el('li');
-      li.append(btn);
-      frag.append(li);
-    });
-    $('memo-load-list').replaceChildren(frag);
-    $('memo-load-list').hidden = false;
-    $('memo-load').setAttribute('aria-expanded', 'true');
-  });
-  $('memo-load-list').addEventListener('click', function (e) {
-    const btn = e.target.closest('.load-item');
-    if (!btn || route.name !== 'memo') return;
-    const m = findScheduled(btn.dataset.id);
-    const owner = findMeeting(route.id);
-    const st = getMemoState(owner);
-    // 미팅 정보 채우기 (메모 내용은 그대로), 이전 정리 결과는 비움
-    st.date = m.upcoming.date;
-    st.start = m.upcoming.start;
-    st.end = m.upcoming.end;
-    st.company = m.company;
-    st.contact = contactFull(m);
-    st.summary = null;
-    st.savedSig = null;
-    st.noteId = null;
-    st.noMatch = false;
-    memoDate.value = st.date;
-    memoStart.value = st.start;
-    memoEnd.value = st.end;
-    memoCompany.value = st.company;
-    memoContact.value = st.contact;
-    updateMemoUI(owner);
-    closeLoadList();
-    memoInput.focus({ preventScroll: true });
-    revealAboveTabbar(memoInput);
-  });
   $('detail-back').addEventListener('click', goBack);
 
-  // 기록 삭제: 한 번 더 확인한 뒤 지우고 이전 화면으로
-  $('delete-ask').addEventListener('click', function () {
-    const open = $('delete-confirm').hidden;
-    $('delete-confirm').hidden = !open;
-    $('delete-ask').setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open) {
-      $('delete-cancel').focus({ preventScroll: true });
-      revealAboveTabbar($('delete-confirm'));
-    }
-  });
-  $('delete-cancel').addEventListener('click', function () {
-    resetDeleteUI();
-    $('delete-ask').focus();
-  });
-  $('reset-ask').addEventListener('click', function () {
-    const open = $('reset-confirm').hidden;
-    $('reset-confirm').hidden = !open;
-    $('reset-ask').setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open) {
-      $('reset-cancel').focus({ preventScroll: true });
-      revealAboveTabbar($('reset-confirm'));
-    }
-  });
-  $('reset-cancel').addEventListener('click', function () {
-    $('reset-confirm').hidden = true;
-    $('reset-ask').setAttribute('aria-expanded', 'false');
-    $('reset-ask').focus();
-  });
-  $('reset-ok').addEventListener('click', function () {
-    resetAllRecords();
-    lastKey = '';
-    render();
-    $('more-live').textContent = '기록을 처음 상태로 되돌렸습니다';
-    $('more-title').focus({ preventScroll: true });
-  });
-
-  $('delete-ok').addEventListener('click', function () {
-    let done = false;
-    if (route.name === 'note') done = deleteNote(route.id);
-    else if (route.name === 'detail') done = hideSample(route.id);
-    if (done) {
-      $('detail-live').textContent = '기록을 삭제했습니다';
-      goBack();
-    }
-  });
-
   show(route, false);
-  (function tickEveryMinute() {
-    const ms = 60000 - ((Date.now() + offset) % 60000) + 50;
-    setTimeout(function () { render(); tickEveryMinute(); }, ms);
-  })();
+  setInterval(render, 15000);
   document.addEventListener('visibilitychange', function () {
     if (!document.hidden) render();
   });
